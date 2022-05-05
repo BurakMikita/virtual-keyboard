@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 10px;
+  height: 100vh;
+}
+
+.keyboard_wrapp {
+  max-width: 1008px;
+  width: 100%;
+  background-color: #e7e7e7;
+  overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.keyboard_keys {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.keys {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 4px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  z-index: 5;
+}
+
+.keys:nth-child(42) {
+  width: 175px;
+}
+
+.keys:hover {
+  background-color: #808080;
+  cursor: pointer;
+}
+
+.backspace_key {
+  width: 110px;
+}
+
+.tab_key {
+  width: 110px;
+}
+
+.shift_key {
+  width: 65px;
+}
+
+.caps_lock_key {
+  width: 120px;
+}
+
+.enter_key {
+  width: 120px;
+}
+
+.shift_left {
+  width: 195px;
+}
+
+.shift_right {
+  width: 55px;
+}
+
+.up-arrow {
+  width: 60px;
+}
+
+.space_key {
+  max-width: 450px;
+  width: 100%;
+}
+
+.text {
+  max-width: 1008px;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  font-size: 26px;
+  background-color: #f7f7f7;
+  padding-left: 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.keys.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.keys.remove {
+  -webkit-animation: keys_animation 0.5s forwards;
+          animation: keys_animation 0.5s forwards;
+}
+
+@-webkit-keyframes keys_animation {
+  0% {
+    background-color: #333;
+    color: #fff;
+  }
+  100% {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+@keyframes keys_animation {
+  0% {
+    background-color: #333;
+    color: #fff;
+  }
+  100% {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+body.active {
+  background-color: #363636;
+}
+
+.keyboard_wrapp.active {
+  background-color: #585858;
+}
+
+.keys.keys_night {
+  background-color: #3c3c3c;
+  color: #fff;
+}
+
+.text.active {
+  background-color: #2b2b2b;
+  color: #fff;
+}
+
+.keys.keys_night.active {
+  background-color: #fff;
+  color: #333;
+}
+
+.keys.keys_night.remove {
+  -webkit-animation: keys_night_animation 0.5s forwards;
+          animation: keys_night_animation 0.5s forwards;
+}
+
+@-webkit-keyframes keys_night_animation {
+  0% {
+    background-color: #fff;
+    color: #000;
+  }
+  100% {
+    background-color: #333;
+    color: #fff;
+  }
+}
+
+@keyframes keys_night_animation {
+  0% {
+    background-color: #fff;
+    color: #000;
+  }
+  100% {
+    background-color: #333;
+    color: #fff;
+  }
+}
+
+.change_light_color {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  right: 150px;
+  top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.keyboard_lights {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

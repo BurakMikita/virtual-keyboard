@@ -3,6 +3,7 @@ import "./assets/styles/style.scss";
 
 
 
+
 const keyboard = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e',
  'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'CapsLock', 'a', 's', 'd', 'f', 
  'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.',
@@ -20,16 +21,18 @@ const newArrKalaca = ['Backquote', 'Digit1',
 
 window.addEventListener("keydown", (e) => {
 	newArrKalaca.push(e.code)
-	console.log(newArrKalaca)
+	
 })
-  const input =document.createElement('input')
+  const input =document.createElement('textarea')
   const body = document.querySelector("body");
  const container = document.createElement('div')
  const row = document.createElement('div')
  const keyboard_wrapp = document.createElement('div')
  const keyboard_keys =  document.createElement('div')
+
  input.className = 'text'
  input.text = 'text'
+ input.setAttribute('id', 'text')
  row.className = 'row'
  container.className = 'container'
  keyboard_wrapp.className = 'keyboard_wrapp'
@@ -38,8 +41,11 @@ window.addEventListener("keydown", (e) => {
  container.appendChild(input)
  container.appendChild(keyboard_wrapp)
  keyboard_wrapp.appendChild(keyboard_keys)
+ input.focus()
 
 
+
+ 
 const Intit = () => {
 
  const newarr =  keyboard.map(el=>{
@@ -85,7 +91,7 @@ const Intit = () => {
 			return div
 			case 'ArrowRight':
 			div.className = 'keys'
-			div.innerHTML = '&darr;'
+			div.innerHTML = '&rarr;'
 			return div
 			case 'Meta':
 			div.className = 'keys win_key'
@@ -124,22 +130,140 @@ for (let i = 0; i < newarr.length; i++) {
 Intit()
 
 
+const eventClickmousedown = (e)=> {
+	e.target.classList.add("active");
+   
+ }
+ const eventMousup = (e) => {
+	e.target.classList.remove("active");
+   e.target.classList.add("remove");
+
+setTimeout(() => {
+	e.target.classList.remove("remove");
+ }, 200);
+ }
 
 
+ const  clickEvents = (e) => {
+	  if(e.target.id === 'Backspace') {
+		const rasd = input.selectionStart 	
+		const cursor = input.selectionStart -1
+		 const str = input.value.slice(rasd );
+		 const str2 = input.value.slice(0 ,rasd);
+		 const deltestr = str2.slice(0, -1);
+		 input.value = deltestr  + str
+		 input.setSelectionRange(cursor, cursor)
+	  }else if(e.target.id === 'Enter'){
+		const rasd = input.selectionStart 	
+		const cursor = input.selectionStart + 1
+		const str = input.value.slice(rasd );
+		const str2 = input.value.slice(0 ,rasd);
+		input.value = `${str2  }\n${  str}`
+		input.setSelectionRange(cursor, cursor)
+	  }else if(e.target.id === 'Tab'){
+		const rasd = input.selectionStart 	
+		const cursor = input.selectionStart + 3
+		const str = input.value.slice(rasd );
+		const str2 = input.value.slice(0 ,rasd);
+		input.value = `${str2  }   ${  str}`
+		input.setSelectionRange(cursor, cursor)
+	  }else if(e.target.id === 'Space'){
+		const rasd = input.selectionStart	-1
+		const cursor = input.selectionStart 
+		const str = input.value.slice(rasd );
+		const str2 = input.value.slice(0 ,rasd);
+		console.log(str2)
+		console.log(str)
+		if(str.length <= 1) {
+			input.value = `${str2 + str  }  ` 
+			
+		}else {
+			input.value = `${str2  } ${  str}`
+		}
+		input.setSelectionRange(cursor, cursor)
+	  }
+ }
+
+ const clickDiv = (e)=> {
+	input.focus()
+	 if(e.target.id !== 'Enter' && e.target.id !== 'Backspace' 
+	 && e.target.id !== 'Tab' ){
+  const rasd = input.selectionStart 	
+  const cursor = input.selectionStart + 1
+   const str = input.value.slice(rasd );
+	const str2 = input.value.slice(0 ,rasd);
+	input.value = str2 + e.target.textContent + str
+	input.setSelectionRange(cursor, cursor)
+   
+	 }
+ }
  
-
-
-
-
-
-
-
-
-
 const keys = document.querySelectorAll(".keys");
 
 
+
+
+for (let i = 0; i < keys.length; i++) {
+	keys[i].addEventListener('mousedown', eventClickmousedown)
+	keys[i].addEventListener('mouseup', eventMousup	)
+	keys[i].addEventListener('click', clickDiv)
+	keys[i].addEventListener('click', clickEvents)
+
+	
+}
+
+
+const handlerArrow = (n) => {
+	
+		const htme = ''
+		htme.innerHTML = 'e.target.text'
+		const rasd = input.selectionStart 	
+		const cursor = input.selectionStart + 1
+		 const str = input.value.slice(rasd );
+		 const str2 = input.value.slice(0 ,rasd);
+		 input.value = str2 + n + str
+		 input.setSelectionRange(cursor, cursor)
+}
+
 window.addEventListener("keydown", (e) => {
+	if(e.code === 'ArrowUp'){
+		e.preventDefault();
+		handlerArrow('↑')
+	}else if(e.code === 'ArrowLeft'){
+		e.preventDefault();
+		handlerArrow('←')
+	}else if(e.code === 'ArrowDown'){
+		e.preventDefault();
+		handlerArrow('↓')
+	}else if(e.code === 'ArrowRight'){
+		e.preventDefault();
+		handlerArrow('→')
+	}
+	
+})
+
+
+
+
+
+
+window.addEventListener("keydown", (e) => {
+	if (e.keyCode === 9) {
+		e.preventDefault();
+		const rasd = input.selectionStart 	
+		const cursor = input.selectionStart + 3
+		const str = input.value.slice(rasd );
+		const str2 = input.value.slice(0 ,rasd);
+		input.value = `${str2  }   ${  str}`
+		input.setSelectionRange(cursor, cursor)
+  }
+})
+
+
+
+
+window.addEventListener("keydown", (e) => {
+	input.focus()
 	for (let i = 0; i < keys.length; i++) {
 	   if ( e.code === keys[i].getAttribute("id")  ) {
 		keys[i].classList.add("active");
@@ -148,6 +272,7 @@ window.addEventListener("keydown", (e) => {
  });
  
  window.addEventListener("keyup", (e) => {
+	
 	for (let i = 0; i < keys.length; i++) {
 	  if (
 		 e.code === keys[i].getAttribute("id")
@@ -162,6 +287,26 @@ window.addEventListener("keydown", (e) => {
 	  }, 200);
 	}
  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
