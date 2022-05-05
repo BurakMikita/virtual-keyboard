@@ -1,0 +1,27 @@
+{   
+
+	"env": {
+    "browser": true,
+	 "es6": true,
+	 "node": true
+	},
+	"extends": ["airbnb/base","prettier"],
+	"plugins": ["prettier"],
+	"rules": {
+		"no-console": "off",
+		"no-plusplus":"off",
+		"no-tabs":"off",
+		"semi":"off",
+		"no-multiple-empty-lines":"off",
+		"indent":"off",
+		 "camelcase":"off",
+		 "spaced-comment":"off"
+      
+		 
+	},
+	"parserOptions": {
+		"ecmaVersion": 13,
+		"sourceType": "module"
+		}
+	
+}
