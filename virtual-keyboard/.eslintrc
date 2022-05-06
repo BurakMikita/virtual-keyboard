@@ -15,7 +15,8 @@
 		"no-multiple-empty-lines":"off",
 		"indent":"off",
 		 "camelcase":"off",
-		 "spaced-comment":"off"
+		 "spaced-comment":"off",
+		 "no-shadow":"off"
       
 		 
 	},
