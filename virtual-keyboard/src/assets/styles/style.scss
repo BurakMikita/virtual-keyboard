@@ -116,7 +116,7 @@ body {
 }
 
 .keys.remove {
-    animation: keys_animation 0.5s forwards ;
+    animation: keys_animation 1s forwards ;
 }
 
 @keyframes keys_animation {
@@ -200,4 +200,5 @@ body.active {
 	display: flex;
 	justify-content: center;
 	margin-top: 40px;
+	margin-bottom: 15px;
 }

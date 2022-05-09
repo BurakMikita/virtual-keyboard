@@ -62,14 +62,13 @@ wrapp.className = 'keyboard_wrapp'
 keyboardKeys.className = 'keyboard_keys'
 conrolAlt.className = "control_alt"
 conrolAlt.textContent = "Поменять язык клавиш  Shift left + alt left. "
-conrolAlt.textContent += 'Также самооценка в Pull Request'
+conrolAlt.textContent += 'Также ссылка на PR https://github.com/BurakMikita/virtual-keyboard/pull/1'
 body.appendChild(conrolAlt)
 body.appendChild(container)
 container.appendChild(input)
 container.appendChild(wrapp)
 wrapp.appendChild(keyboardKeys)
 input.focus()
-
 
 
 const Intit = (arr, arr2, russo, roSooDubble) => {
@@ -526,7 +525,7 @@ const eventMousup = (e) => {
 
 	setTimeout(() => {
 		e.target.classList.remove("remove");
-	}, 200);
+	}, 400);
 }
 
 
@@ -667,7 +666,7 @@ window.addEventListener("keydown", (e) => {
 
 window.addEventListener("keyup", (e) => {
 
-	for (let i = 0; i < keys.length; i += 1) {
+	for (let i = 0; i < keys.length;  i += 1) {
 		if (
 			e.code === keys[i].getAttribute("id")
 		) {
@@ -678,7 +677,7 @@ window.addEventListener("keyup", (e) => {
 
 		setTimeout(() => {
 			keys[i].classList.remove("remove");
-		}, 200);
+		}, 500);
 	}
 });
 
