@@ -16,7 +16,8 @@
 		"indent":"off",
 		 "camelcase":"off",
 		 "spaced-comment":"off",
-		 "no-shadow":"off"
+		 "no-shadow":"off",
+		 "no-param-reassign":"off"
       
 		 
 	},

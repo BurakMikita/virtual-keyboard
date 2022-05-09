@@ -7,6 +7,9 @@ import "./assets/styles/style.scss";
 
 
 
+
+
+
 const keyboard = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e',
 	'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Caps Lock', 'a', 's', 'd', 'f',
 	'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.',
@@ -22,6 +25,12 @@ const roSoo = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=',
 	'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'Caps Lock', 'ф', 'ы', 'в', 'а',
 	'п', 'р', 'о', 'л', 'д', 'ж', `'`, 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю',
 	'?', '↑', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '←', '↓', '→']
+
+	const roSooTwo = ['Ё','!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Й', 'Ц', 'У',
+	'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '/', 'Caps Lock', 'Ф', 'Ы', 'В', 'А',
+	'П', 'Р', 'О', 'Л', 'Д', 'Ж', `Э`, 'Enter', 'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю',
+	',', '↑', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '←', '↓', '→']
+
 
 
 
@@ -42,6 +51,7 @@ const container = document.createElement('div')
 const row = document.createElement('div')
 const keyboard_wrapp = document.createElement('div')
 const keyboard_keys = document.createElement('div')
+const conrolAlt = document.createElement('div')
 
 input.className = 'text'
 input.text = 'text'
@@ -50,6 +60,10 @@ row.className = 'row'
 container.className = 'container'
 keyboard_wrapp.className = 'keyboard_wrapp'
 keyboard_keys.className = 'keyboard_keys'
+conrolAlt.className = "control_alt"
+conrolAlt.textContent = "Поменять язвк клавиш  Shift left + alt left. "
+conrolAlt.textContent +='Также самооценка в Pull Request'
+body.appendChild(conrolAlt)
 body.appendChild(container)
 container.appendChild(input)
 container.appendChild(keyboard_wrapp)
@@ -58,12 +72,11 @@ input.focus()
 
 
 
+const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
+   let newarr = []
 
-const Intit = (arr, arr2, russo) => {
-
-
-
-	const newarr = arr.map(el => {
+  if(flagTwo){
+	 newarr = arr.map(el => {
 		const div = document.createElement('div')
 		switch (el) {
 			case 'Backspace':
@@ -125,6 +138,71 @@ const Intit = (arr, arr2, russo) => {
 
 		}
 	})
+  }else {
+	 newarr = russo.map(el => {
+		const div = document.createElement('div')
+		switch (el) {
+			case 'Backspace':
+				div.className = 'keys backspace_key'
+				div.textContent = el
+				return div
+			case 'Tab':
+				div.className = 'keys tab_key'
+				div.textContent = el
+				div.setAttribute('id', el)
+				return div
+			case 'Caps Lock':
+				div.className = 'keys caps_lock_key'
+				div.textContent = 'Caps Lock'
+				return div
+			case 'Enter':
+				div.className = 'keys enter_key'
+				div.textContent = el
+				return div
+			case 'Shift':
+				div.className = 'keys shift_key'
+				div.textContent = el
+				return div
+			case 'Ctrl':
+				div.className = 'keys ctrl_key'
+				div.textContent = 'Ctrl'
+				return div
+			case '↑':
+				div.className = 'keys up-arrow'
+				div.innerHTML = `&#8593;`;
+				return div
+			case '←':
+				div.className = 'keys'
+				div.innerHTML = '&larr;'
+				return div
+			case '↓':
+				div.className = 'keys'
+				div.innerHTML = '&darr;'
+				return div
+			case '→':
+				div.className = 'keys'
+				div.innerHTML = '&rarr;'
+				return div
+			case 'Win':
+				div.className = 'keys win_key'
+				div.textContent = 'Win'
+				return div
+
+			case ' ':
+				div.className = 'keys space_key'
+				div.textContent = ''
+				return div
+
+			default:
+
+				div.className = 'keys'
+				div.innerText = el
+				return div
+
+		}
+	})
+  }
+
 
 	for (let j = 0; j < newarr.length; j++) {
 		newarr[j].setAttribute('id', newArrKalaca[j])
@@ -192,39 +270,9 @@ const Intit = (arr, arr2, russo) => {
 
 	})
 
-	window.addEventListener("keydown", (e) => {
-		if (e.code === 'ShiftRight' || e.code === 'ShiftLeft') {
-			e.preventDefault();
-			for (let i = 0; i < newarr.length; i++) {
-
-				newarr[i].innerText = arr2[i]
+	
 
 
-
-
-
-
-
-			}
-		}
-	})
-
-	window.addEventListener("keyup", (e) => {
-		if (e.code === 'ShiftRight' || e.code === 'ShiftLeft') {
-			e.preventDefault();
-			for (let i = 0; i < newarr.length; i++) {
-
-
-
-
-				newarr[i].innerText = arr[i]
-
-
-
-
-			}
-		}
-	})
 	window.addEventListener('mousedown', (e) => {
 		if (e.target.id === 'ShiftRight' || e.target.id === 'ShiftLeft') {
 			e.preventDefault();
@@ -250,16 +298,18 @@ const Intit = (arr, arr2, russo) => {
 			}
 		}
 	})
+ 
 
 
-	let flag = true
+	
+	
 	window.addEventListener("keydown", (e) => {
 		const caps = document.getElementById('CapsLock')
+     input.focus()
+		if (e.code === 'ShiftLeft') {
 
-		if (e.code === 'AltLeft') {
-
-			if (e.ctrlKey) {
-				if (flag) {
+			if (e.altKey) {
+				if (flagTwo) {
 
 					for (let i = 0; i < newarr.length; i++) {
 						if (caps.classList.contains('actives')) {
@@ -277,7 +327,8 @@ const Intit = (arr, arr2, russo) => {
 
 					}
 
-					flag = false
+					flagTwo = false
+					localStorage.setItem("myKey",JSON.stringify(flagTwo));
 
 				} else {
 					for (let i = 0; i < newarr.length; i++) {
@@ -296,11 +347,102 @@ const Intit = (arr, arr2, russo) => {
 
 					}
 
-					flag = true
+					flagTwo = true
+					localStorage.setItem("myKey",JSON.stringify(flagTwo));
 				}
 			}
 		}
 
+	})
+	window.addEventListener("keydown", (e) => {
+		const caps = document.getElementById('CapsLock')
+
+		if (e.code === 'AltLeft') {
+
+			if (e.shiftKey) {
+				if (flagTwo) {
+
+					for (let i = 0; i < newarr.length; i++) {
+						if (caps.classList.contains('actives')) {
+							if (newarr[i].textContent.length < 2) {
+								newarr[i].innerText = russo[i].toUpperCase()
+							}
+						} else {
+							newarr[i].innerText = russo[i]
+						}
+
+
+
+
+
+
+					}
+
+					flagTwo = false
+					localStorage.setItem("myKey",JSON.stringify(flagTwo));
+
+				} else {
+					for (let i = 0; i < newarr.length; i++) {
+						if (caps.classList.contains('actives')) {
+							if (newarr[i].textContent.length < 2) {
+								newarr[i].innerText = arr[i].toUpperCase()
+							}
+						} else {
+							newarr[i].innerText = arr[i]
+						}
+
+
+
+
+
+
+					}
+
+					flagTwo = true
+					localStorage.setItem("myKey",JSON.stringify(flagTwo));
+				}
+			}
+		}
+
+	})
+
+	window.addEventListener("keydown", (e) => {
+		if (e.code === 'ShiftRight' || e.code === 'ShiftLeft') {
+			e.preventDefault();
+			for (let i = 0; i < newarr.length; i++) {
+
+				if(flagTwo) {
+					newarr[i].innerText = arr2[i]
+				}else {
+					newarr[i].innerText = roSooTwo[i]
+				}
+
+
+
+
+
+
+			}
+		}
+	})
+
+	window.addEventListener("keyup", (e) => {
+		if (e.code === 'ShiftRight' || e.code === 'ShiftLeft') {
+			
+			e.preventDefault();
+			for (let i = 0; i < newarr.length; i++) {
+             
+				if(flagTwo) {
+						newarr[i].innerText = arr[i]
+				 }else {
+					newarr[i].innerText = russo[i]
+				 }
+
+
+
+
+			}
+		}
 	})
 
 
@@ -315,11 +457,27 @@ const Intit = (arr, arr2, russo) => {
 
 
 
+let flagTwoParse = null
+
+
+      const parse = JSON.parse(localStorage.getItem("myKey")) 
+		if(parse === null){
+		
+				flagTwoParse =  true
+			
+		}else {
+         flagTwoParse = JSON.parse(localStorage.getItem("myKey")) 
+			
+		}
 
 
 
 
-Intit(keyboard, keyboardTwo, roSoo)
+
+
+Intit(keyboard, keyboardTwo, roSoo, roSooTwo, flagTwoParse)
+
+
 
 
 
@@ -341,6 +499,19 @@ window.addEventListener('keydown', (e) => {
 
 })
 
+
+window.addEventListener('keydown', (e) => {
+	console.log(e.code)
+	if(e.code === 'AltLeft'){
+    e.preventDefault()
+	}
+})
+window.addEventListener('keydown', (e) => {
+	console.log(e.code)
+	if(e.code === 'AltRight'){
+    e.preventDefault()
+	}
+})
 
 
 const eventClickmousedown = (e) => {
@@ -410,7 +581,7 @@ const clickDiv = (e) => {
 		const str = input.value.slice(rasd);
 		const str2 = input.value.slice(0, rasd);
 		input.value = str2 + e.target.textContent + str
-		input.setSelectionRange(cursor,  cursor)
+		input.setSelectionRange(cursor, cursor)
 
 	}
 }
@@ -444,7 +615,6 @@ const handlerArrow = (n) => {
 
 
 window.addEventListener("keydown", (e) => {
-	console.log(e.code)
 	if (e.code === 'ArrowUp') {
 		e.preventDefault();
 		handlerArrow('↑')
@@ -462,7 +632,6 @@ window.addEventListener("keydown", (e) => {
 
 	} else if (e.code === 'Backquote') {
 		e.preventDefault()
-		console.log(e)
 		handlerArrow(e.key)
 	}
 
@@ -515,6 +684,28 @@ window.addEventListener("keyup", (e) => {
 		}, 200);
 	}
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
