@@ -26,7 +26,7 @@ const roSoo = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=',
 	'п', 'р', 'о', 'л', 'д', 'ж', `'`, 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю',
 	'?', '↑', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '←', '↓', '→']
 
-	const roSooTwo = ['Ё','!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Й', 'Ц', 'У',
+const roSooTwo = ['Ё', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace', 'Tab', 'Й', 'Ц', 'У',
 	'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '/', 'Caps Lock', 'Ф', 'Ы', 'В', 'А',
 	'П', 'Р', 'О', 'Л', 'Д', 'Ж', `Э`, 'Enter', 'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю',
 	',', '↑', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', 'Ctrl', '←', '↓', '→']
@@ -61,8 +61,8 @@ container.className = 'container'
 keyboard_wrapp.className = 'keyboard_wrapp'
 keyboard_keys.className = 'keyboard_keys'
 conrolAlt.className = "control_alt"
-conrolAlt.textContent = "Поменять язвк клавиш  Shift left + alt left. "
-conrolAlt.textContent +='Также самооценка в Pull Request'
+conrolAlt.textContent = "Поменять язык клавиш  Shift left + alt left. "
+conrolAlt.textContent += 'Также самооценка в Pull Request'
 body.appendChild(conrolAlt)
 body.appendChild(container)
 container.appendChild(input)
@@ -72,136 +72,136 @@ input.focus()
 
 
 
-const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
-   let newarr = []
+const Intit = (arr, arr2, russo, roSooTwo, flagTwo) => {
+	let newarr = []
 
-  if(flagTwo){
-	 newarr = arr.map(el => {
-		const div = document.createElement('div')
-		switch (el) {
-			case 'Backspace':
-				div.className = 'keys backspace_key'
-				div.textContent = el
-				return div
-			case 'Tab':
-				div.className = 'keys tab_key'
-				div.textContent = el
-				div.setAttribute('id', el)
-				return div
-			case 'Caps Lock':
-				div.className = 'keys caps_lock_key'
-				div.textContent = 'Caps Lock'
-				return div
-			case 'Enter':
-				div.className = 'keys enter_key'
-				div.textContent = el
-				return div
-			case 'Shift':
-				div.className = 'keys shift_key'
-				div.textContent = el
-				return div
-			case 'Ctrl':
-				div.className = 'keys ctrl_key'
-				div.textContent = 'Ctrl'
-				return div
-			case '↑':
-				div.className = 'keys up-arrow'
-				div.innerHTML = `&#8593;`;
-				return div
-			case '←':
-				div.className = 'keys'
-				div.innerHTML = '&larr;'
-				return div
-			case '↓':
-				div.className = 'keys'
-				div.innerHTML = '&darr;'
-				return div
-			case '→':
-				div.className = 'keys'
-				div.innerHTML = '&rarr;'
-				return div
-			case 'Win':
-				div.className = 'keys win_key'
-				div.textContent = 'Win'
-				return div
+	if (flagTwo) {
+		newarr = arr.map(el => {
+			const div = document.createElement('div')
+			switch (el) {
+				case 'Backspace':
+					div.className = 'keys backspace_key'
+					div.textContent = el
+					return div
+				case 'Tab':
+					div.className = 'keys tab_key'
+					div.textContent = el
+					div.setAttribute('id', el)
+					return div
+				case 'Caps Lock':
+					div.className = 'keys caps_lock_key'
+					div.textContent = 'Caps Lock'
+					return div
+				case 'Enter':
+					div.className = 'keys enter_key'
+					div.textContent = el
+					return div
+				case 'Shift':
+					div.className = 'keys shift_key'
+					div.textContent = el
+					return div
+				case 'Ctrl':
+					div.className = 'keys ctrl_key'
+					div.textContent = 'Ctrl'
+					return div
+				case '↑':
+					div.className = 'keys up-arrow'
+					div.innerHTML = `&#8593;`;
+					return div
+				case '←':
+					div.className = 'keys'
+					div.innerHTML = '&larr;'
+					return div
+				case '↓':
+					div.className = 'keys'
+					div.innerHTML = '&darr;'
+					return div
+				case '→':
+					div.className = 'keys'
+					div.innerHTML = '&rarr;'
+					return div
+				case 'Win':
+					div.className = 'keys win_key'
+					div.textContent = 'Win'
+					return div
 
-			case ' ':
-				div.className = 'keys space_key'
-				div.textContent = ''
-				return div
+				case ' ':
+					div.className = 'keys space_key'
+					div.textContent = ''
+					return div
 
-			default:
+				default:
 
-				div.className = 'keys'
-				div.innerText = el
-				return div
+					div.className = 'keys'
+					div.innerText = el
+					return div
 
-		}
-	})
-  }else {
-	 newarr = russo.map(el => {
-		const div = document.createElement('div')
-		switch (el) {
-			case 'Backspace':
-				div.className = 'keys backspace_key'
-				div.textContent = el
-				return div
-			case 'Tab':
-				div.className = 'keys tab_key'
-				div.textContent = el
-				div.setAttribute('id', el)
-				return div
-			case 'Caps Lock':
-				div.className = 'keys caps_lock_key'
-				div.textContent = 'Caps Lock'
-				return div
-			case 'Enter':
-				div.className = 'keys enter_key'
-				div.textContent = el
-				return div
-			case 'Shift':
-				div.className = 'keys shift_key'
-				div.textContent = el
-				return div
-			case 'Ctrl':
-				div.className = 'keys ctrl_key'
-				div.textContent = 'Ctrl'
-				return div
-			case '↑':
-				div.className = 'keys up-arrow'
-				div.innerHTML = `&#8593;`;
-				return div
-			case '←':
-				div.className = 'keys'
-				div.innerHTML = '&larr;'
-				return div
-			case '↓':
-				div.className = 'keys'
-				div.innerHTML = '&darr;'
-				return div
-			case '→':
-				div.className = 'keys'
-				div.innerHTML = '&rarr;'
-				return div
-			case 'Win':
-				div.className = 'keys win_key'
-				div.textContent = 'Win'
-				return div
+			}
+		})
+	} else {
+		newarr = russo.map(el => {
+			const div = document.createElement('div')
+			switch (el) {
+				case 'Backspace':
+					div.className = 'keys backspace_key'
+					div.textContent = el
+					return div
+				case 'Tab':
+					div.className = 'keys tab_key'
+					div.textContent = el
+					div.setAttribute('id', el)
+					return div
+				case 'Caps Lock':
+					div.className = 'keys caps_lock_key'
+					div.textContent = 'Caps Lock'
+					return div
+				case 'Enter':
+					div.className = 'keys enter_key'
+					div.textContent = el
+					return div
+				case 'Shift':
+					div.className = 'keys shift_key'
+					div.textContent = el
+					return div
+				case 'Ctrl':
+					div.className = 'keys ctrl_key'
+					div.textContent = 'Ctrl'
+					return div
+				case '↑':
+					div.className = 'keys up-arrow'
+					div.innerHTML = `&#8593;`;
+					return div
+				case '←':
+					div.className = 'keys'
+					div.innerHTML = '&larr;'
+					return div
+				case '↓':
+					div.className = 'keys'
+					div.innerHTML = '&darr;'
+					return div
+				case '→':
+					div.className = 'keys'
+					div.innerHTML = '&rarr;'
+					return div
+				case 'Win':
+					div.className = 'keys win_key'
+					div.textContent = 'Win'
+					return div
 
-			case ' ':
-				div.className = 'keys space_key'
-				div.textContent = ''
-				return div
+				case ' ':
+					div.className = 'keys space_key'
+					div.textContent = ''
+					return div
 
-			default:
+				default:
 
-				div.className = 'keys'
-				div.innerText = el
-				return div
+					div.className = 'keys'
+					div.innerText = el
+					return div
 
-		}
-	})
-  }
+			}
+		})
+	}
 
 
 	for (let j = 0; j < newarr.length; j++) {
@@ -270,7 +270,7 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 
 	})
 
-	
+
 
 
 	window.addEventListener('mousedown', (e) => {
@@ -298,14 +298,14 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 			}
 		}
 	})
- 
 
 
-	
-	
+
+
+
 	window.addEventListener("keydown", (e) => {
 		const caps = document.getElementById('CapsLock')
-     input.focus()
+		input.focus()
 		if (e.code === 'ShiftLeft') {
 
 			if (e.altKey) {
@@ -328,7 +328,7 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 					}
 
 					flagTwo = false
-					localStorage.setItem("myKey",JSON.stringify(flagTwo));
+					localStorage.setItem("myKey", JSON.stringify(flagTwo));
 
 				} else {
 					for (let i = 0; i < newarr.length; i++) {
@@ -348,7 +348,7 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 					}
 
 					flagTwo = true
-					localStorage.setItem("myKey",JSON.stringify(flagTwo));
+					localStorage.setItem("myKey", JSON.stringify(flagTwo));
 				}
 			}
 		}
@@ -379,7 +379,7 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 					}
 
 					flagTwo = false
-					localStorage.setItem("myKey",JSON.stringify(flagTwo));
+					localStorage.setItem("myKey", JSON.stringify(flagTwo));
 
 				} else {
 					for (let i = 0; i < newarr.length; i++) {
@@ -399,7 +399,7 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 					}
 
 					flagTwo = true
-					localStorage.setItem("myKey",JSON.stringify(flagTwo));
+					localStorage.setItem("myKey", JSON.stringify(flagTwo));
 				}
 			}
 		}
@@ -411,9 +411,9 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 			e.preventDefault();
 			for (let i = 0; i < newarr.length; i++) {
 
-				if(flagTwo) {
+				if (flagTwo) {
 					newarr[i].innerText = arr2[i]
-				}else {
+				} else {
 					newarr[i].innerText = roSooTwo[i]
 				}
 
@@ -428,15 +428,15 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 
 	window.addEventListener("keyup", (e) => {
 		if (e.code === 'ShiftRight' || e.code === 'ShiftLeft') {
-			
+
 			e.preventDefault();
 			for (let i = 0; i < newarr.length; i++) {
-             
-				if(flagTwo) {
-						newarr[i].innerText = arr[i]
-				 }else {
+
+				if (flagTwo) {
+					newarr[i].innerText = arr[i]
+				} else {
 					newarr[i].innerText = russo[i]
-				 }
+				}
 
 
 
@@ -460,15 +460,15 @@ const Intit = (arr, arr2, russo, roSooTwo ,flagTwo) => {
 let flagTwoParse = null
 
 
-      const parse = JSON.parse(localStorage.getItem("myKey")) 
-		if(parse === null){
-		
-				flagTwoParse =  true
-			
-		}else {
-         flagTwoParse = JSON.parse(localStorage.getItem("myKey")) 
-			
-		}
+const parse = JSON.parse(localStorage.getItem("myKey"))
+if (parse === null) {
+
+	flagTwoParse = true
+
+} else {
+	flagTwoParse = JSON.parse(localStorage.getItem("myKey"))
+
+}
 
 
 
@@ -502,14 +502,14 @@ window.addEventListener('keydown', (e) => {
 
 window.addEventListener('keydown', (e) => {
 	console.log(e.code)
-	if(e.code === 'AltLeft'){
-    e.preventDefault()
+	if (e.code === 'AltLeft') {
+		e.preventDefault()
 	}
 })
 window.addEventListener('keydown', (e) => {
 	console.log(e.code)
-	if(e.code === 'AltRight'){
-    e.preventDefault()
+	if (e.code === 'AltRight') {
+		e.preventDefault()
 	}
 })
 
@@ -544,14 +544,14 @@ const clickEvents = (e) => {
 		const cursor = input.selectionStart + 1
 		const str = input.value.slice(rasd);
 		const str2 = input.value.slice(0, rasd);
-		input.value = `${str2  }\n${  str}`
+		input.value = `${str2}\n${str}`
 		input.setSelectionRange(cursor, cursor)
 	} else if (e.target.id === 'Tab') {
 		const rasd = input.selectionStart
 		const cursor = input.selectionStart + 3
 		const str = input.value.slice(rasd);
 		const str2 = input.value.slice(0, rasd);
-		input.value = `${str2  }   ${  str}`
+		input.value = `${str2}   ${str}`
 		input.setSelectionRange(cursor, cursor)
 	} else if (e.target.id === 'Space') {
 		const rasd = input.selectionStart - 1
@@ -561,10 +561,10 @@ const clickEvents = (e) => {
 
 
 		if (str.length <= 1) {
-			input.value = `${str2 + str  }  `
+			input.value = `${str2 + str}  `
 
 		} else {
-			input.value = `${str2  } ${  str}`
+			input.value = `${str2} ${str}`
 		}
 		input.setSelectionRange(cursor, cursor)
 	}
@@ -610,7 +610,7 @@ const handlerArrow = (n) => {
 	const str = input.value.slice(rasd);
 	const str2 = input.value.slice(0, rasd);
 	input.value = str2 + n + str
-	input.setSelectionRange(cursor,  cursor)
+	input.setSelectionRange(cursor, cursor)
 }
 
 
@@ -651,8 +651,8 @@ window.addEventListener("keydown", (e) => {
 		const cursor = input.selectionStart + 3
 		const str = input.value.slice(rasd);
 		const str2 = input.value.slice(0, rasd);
-		input.value = `${str2  }   ${  str}`
-		input.setSelectionRange(cursor,  cursor)
+		input.value = `${str2}   ${str}`
+		input.setSelectionRange(cursor, cursor)
 	}
 })
 

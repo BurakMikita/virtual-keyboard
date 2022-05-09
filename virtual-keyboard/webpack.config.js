@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 
 
 
@@ -8,14 +10,22 @@ module.exports = {
   output: {
     filename: '[hash].js',
     path: path.resolve(__dirname, 'dist'),
-	 clean: true,
+	 clean: {
+		keep: /\.git/,
+	},
   },
   mode: 'production',
   plugins: [
 	new HtmlWebpackPlugin({  
       filename: 'index.html',
       template: 'src/index.html'
-    })
+    }),
+	 new CleanWebpackPlugin({
+		cleanOnceBeforeBuildPatterns: [
+			'**/*',
+			'!.git',
+		],
+	}),
  ],
  module: {
  rules: [
